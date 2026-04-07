@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Termine & Erstgespräch | Bertram Böhm — Systemische Beratung für Unternehmen</title>
+  <meta name="description" content="Seminartermine 2026 und vertrauliche Erstberatung. Systemische Aufstellungen für Unternehmen mit Bertram Böhm in Eching bei München.">
+  <meta name="keywords" content="Aufstellungsseminar, Termine 2026, Erstgespräch, Organisationsaufstellung, Systemische Beratung, Unternehmen, Eching, München, Bertram Böhm">
+  <meta name="author" content="Bertram Böhm">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.bertramboehm.de/business/termine.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Termine & Erstgespräch | Bertram Böhm — Systemische Beratung">
+  <meta property="og:description" content="Seminartermine 2026 und vertrauliche Erstberatung. Systemische Aufstellungen für Unternehmen mit Bertram Böhm in Eching bei München.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Termine page — past items */
+    .termin-item--past {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .termin-item--past .termin-item__date {
+      background: var(--color-text-light);
+    }
+    .termin-item--past .termin-item__badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-light);
+      background: var(--color-background-alt);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-top: 0.25rem;
+    }
+
+    /* Termine page — highlighted next item */
+    .termin-item--next {
+      border-color: var(--color-cta);
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+      position: relative;
+    }
+    .termin-item--next::before {
+      content: 'Nächster Termin';
+      position: absolute;
+      top: -12px;
+      left: 24px;
+      background: var(--color-cta);
+      color: var(--color-white);
+      padding: 0.15rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* Erstgespräch highlight box */
+    .erstgespraech {
+      background: var(--color-white);
+      border-radius: 8px;
+      padding: var(--space-xl);
+      border: 2px solid var(--color-cta);
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+    .erstgespraech__badge {
+      display: inline-block;
+      background: var(--color-cta);
+      color: var(--color-white);
+      padding: 0.25rem 1rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-md);
+    }
+    .erstgespraech__contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+    .erstgespraech__contact a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    /* Form checkbox */
+    .form-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: var(--space-md);
+    }
+    .form-checkbox input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+      accent-color: var(--color-cta);
+    }
+    .form-checkbox label {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--color-text);
+      cursor: pointer;
+    }
+    .form-checkbox label a {
+      text-decoration: underline;
+    }
+
+    /* Location grid */
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      align-items: start;
+    }
+    .location-details h3 {
+      margin-bottom: var(--space-sm);
+    }
+    .location-details p {
+      color: var(--color-text-light);
+    }
+    .location-details strong {
+      color: var(--color-accent-dark);
+    }
+
+    @media (max-width: 768px) {
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+      .erstgespraech {
+        padding: var(--space-lg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Bertram Böhm — Startseite">
+        <svg class="nav__logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" fill="#2563EB"/>
+          <circle cx="28" cy="12" r="4" fill="#1E3A5F"/>
+          <circle cx="12" cy="28" r="4" fill="#1E3A5F"/>
+          <circle cx="28" cy="28" r="4" fill="#2563EB"/>
+          <line x1="16" y1="12" x2="24" y2="12" stroke="#1E3A5F" stroke-width="1.5"/>
+          <line x1="12" y1="16" x2="12" y2="24" stroke="#1E3A5F" stroke-width="1.5"/>
+          <line x1="28" y1="16" x2="28" y2="24" stroke="#1E3A5F" stroke-width="1.5"/>
+          <line x1="16" y1="28" x2="24" y2="28" stroke="#1E3A5F" stroke-width="1.5"/>
+          <line x1="15" y1="15" x2="25" y2="25" stroke="#2563EB" stroke-width="1" opacity="0.4"/>
+          <line x1="25" y1="15" x2="15" y2="25" stroke="#2563EB" stroke-width="1" opacity="0.4"/>
+        </svg>
+        <div class="nav__logo-text">
+          Bertram Böhm
+          <span>Systemische Beratung</span>
+        </div>
+      </a>
+
+      <ul class="nav__links">
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="organisationsaufstellung.html">Organisationsaufstellung</a></li>
+        <li><a href="problemaufstellung.html">Problemaufstellung</a></li>
+        <li><a href="methode.html">Die Methode</a></li>
+        <li><a href="ueber-mich.html">Über Bertram Böhm</a></li>
+        <li><a href="termine.html" class="nav__cta active">Termin vereinbaren</a></li>
+      </ul>
+
+      <button class="nav__toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <nav class="page-header__breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Startseite</a> &gt; Termine & Erstgespräch
+      </nav>
+      <h1>Termine & Erstgespräch</h1>
+      <p>Seminartermine 2026 und vertrauliche Erstberatung.</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- ========== Erstgespräch ========== -->
+    <section class="section" id="erstgespraech">
+      <div class="container container--narrow">
+        <div class="erstgespraech">
+          <span class="erstgespraech__badge">Kostenfrei & vertraulich</span>
+          <h2>Erstgespräch</h2>
+          <p>Bevor Sie sich für ein Seminar entscheiden, biete ich ein vertrauliches, kostenfreies Erstgespräch an. Wir klären Ihr Anliegen und ob eine Aufstellung der richtige Weg ist.</p>
+          <div class="erstgespraech__contact">
+            <a href="tel:+498932714713">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +49 (0)89 / 32 71 47 13
+            </a>
+            <a href="mailto:RA.Boehm@t-online.de">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              RA.Boehm@t-online.de
+            </a>
+          </div>
+          <a href="tel:+498932714713" class="btn btn--primary">Jetzt anrufen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Seminartermine 2026 ========== -->
+    <section class="section section--alt" id="termine">
+      <div class="container">
+        <h2 class="text-center mb-lg">Seminartermine 2026</h2>
+        <div class="termin-list">
+
+          <!-- 1/26 — VERGANGEN -->
+          <div class="termin-item termin-item--past" style="opacity: 0.5;">
+            <div class="termin-item__date">
+              <span class="termin-item__day">14</span>
+              <span class="termin-item__month">Feb. 2026</span>
+            </div>
+            <div class="termin-item__info">
+              <p class="termin-item__title">Aufstellungsseminar</p>
+              <p class="termin-item__detail">10:00–17:00 | ASZ Eching</p>
+              <span class="termin-item__badge">Vergangen</span>
+            </div>
+          </div>
+
+          <!-- 2/26 — VERGANGEN -->
+          <div class="termin-item termin-item--past" style="opacity: 0.5;">
+            <div class="termin-item__date">
+              <span class="termin-item__day">19</span>
+              <span class="termin-item__month">Apr. 2026</span>
+            </div>
+            <div class="termin-item__info">
+              <p class="termin-item__title">Aufstellungsseminar</p>
+              <p class="termin-item__detail">10:00–17:00 | ASZ Eching</p>
+              <span class="termin-item__badge">Vergangen</span>
+            </div>
+          </div>
+
+          <!-- 3/26 — NEXT upcoming, highlighted -->
+          <div class="termin-item termin-item--next">
+            <div class="termin-item__date">
+              <span class="termin-item__day">20</span>
+              <span class="termin-item__month">Juni 2026</span>
+            </div>
+            <div class="termin-item__info">
+              <p class="termin-item__title">Aufstellungsseminar</p>
+              <p class="termin-item__detail">10:00–17:00 | ASZ Eching</p>
+            </div>
+            <div class="termin-item__cta">
+              <a href="#anmeldung" class="btn btn--primary">Platz reservieren</a>
+            </div>
+          </div>
+
+          <!-- 4/26 -->
+          <div class="termin-item">
+            <div class="termin-item__date">
+              <span class="termin-item__day">29</span>
+              <span class="termin-item__month">Aug. 2026</span>
+            </div>
+            <div class="termin-item__info">
+              <p class="termin-item__title">Aufstellungsseminar</p>
+              <p class="termin-item__detail">10:00–17:00 | ASZ Eching</p>
+            </div>
+            <div class="termin-item__cta">
+              <a href="#anmeldung" class="btn btn--primary">Platz reservieren</a>
+            </div>
+          </div>
+
+          <!-- 5/26 -->
+          <div class="termin-item">
+            <div class="termin-item__date">
+              <span class="termin-item__day">26</span>
+              <span class="termin-item__month">Sep. 2026</span>
+            </div>
+            <div class="termin-item__info">
+              <p class="termin-item__title">Aufstellungsseminar</p>
+              <p class="termin-item__detail">10:00–17:00 | ASZ Eching</p>
+            </div>
+            <div class="termin-item__cta">
+              <a href="#anmeldung" class="btn btn--primary">Platz reservieren</a>
+            </div>
+          </div>
+
+          <!-- 6/26 -->
+          <div class="termin-item">
+            <div class="termin-item__date">
+              <span class="termin-item__day">24</span>
+              <span class="termin-item__month">Okt. 2026</span>
+            </div>
+            <div class="termin-item__info">
+              <p class="termin-item__title">Aufstellungsseminar</p>
+              <p class="termin-item__detail">10:00–17:00 | ASZ Eching</p>
+            </div>
+            <div class="termin-item__cta">
+              <a href="#anmeldung" class="btn btn--primary">Platz reservieren</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Investition ========== -->
+    <section class="section" id="investition">
+      <div class="container">
+        <h2 class="text-center mb-lg">Investition</h2>
+        <div class="pricing-grid">
+
+          <!-- Teilnahme -->
+          <div class="pricing-card">
+            <h3 class="pricing-card__title">Teilnahme</h3>
+            <p class="pricing-card__price">50 &euro;</p>
+            <p class="pricing-card__desc">Beobachten, miterleben, erste Erkenntnisse gewinnen.</p>
+            <ul class="pricing-card__features">
+              <li>Erleben Sie die Dynamik einer Aufstellung</li>
+              <li>Wirken Sie als Stellvertreter mit</li>
+              <li>Gewinnen Sie erste Impulse</li>
+            </ul>
+            <a href="#anmeldung" class="btn btn--secondary" style="width: 100%; justify-content: center;">Platz reservieren</a>
+          </div>
+
+          <!-- Eigene Aufstellung (featured) -->
+          <div class="pricing-card pricing-card--featured">
+            <h3 class="pricing-card__title">Eigene Aufstellung</h3>
+            <p class="pricing-card__price">250 &euro;</p>
+            <p class="pricing-card__desc">Ihr konkretes Anliegen aufstellen. Inkl. Vor- und Nachgespräch.</p>
+            <ul class="pricing-card__features">
+              <li>Persönliches Vorgespräch</li>
+              <li>Eigene Aufstellung mit Stellvertretern</li>
+              <li>Lösungsbild und Integration</li>
+              <li>Vertrauliches Nachgespräch</li>
+            </ul>
+            <a href="#anmeldung" class="btn btn--primary" style="width: 100%; justify-content: center;">Jetzt anfragen</a>
+          </div>
+
+          <!-- VIP-Format -->
+          <div class="pricing-card">
+            <h3 class="pricing-card__title">VIP-Format</h3>
+            <p class="pricing-card__price">Auf Anfrage</p>
+            <p class="pricing-card__desc">Maximale Diskretion. Individueller Termin. Anwaltliche Schweigepflicht.</p>
+            <ul class="pricing-card__features">
+              <li>Vollständige Vertraulichkeit</li>
+              <li>Individueller Termin nach Vereinbarung</li>
+              <li>Persönliche Betreuung</li>
+              <li>Anwaltliche Schweigepflicht</li>
+            </ul>
+            <a href="#anmeldung" class="btn btn--secondary" style="width: 100%; justify-content: center;">Anfragen</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Anmeldeformular ========== -->
+    <section class="section section--alt" id="anmeldung">
+      <div class="container container--narrow">
+        <h2 class="text-center mb-lg">Anmeldung</h2>
+        <form action="https://formspree.io/f/XXXXXXXX" method="POST">
+
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required placeholder="Ihr vollständiger Name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-Mail *</label>
+            <input type="email" id="email" name="email" required placeholder="Ihre E-Mail-Adresse">
+          </div>
+
+          <div class="form-group">
+            <label for="telefon">Telefon</label>
+            <input type="tel" id="telefon" name="telefon" placeholder="Für Rückfragen (optional)">
+          </div>
+
+          <div class="form-group">
+            <label for="termin">Gewünschter Termin *</label>
+            <select id="termin" name="termin" required>
+              <option value="" disabled selected>Bitte wählen Sie einen Termin</option>
+              <option value="2026-06-20">20. Juni 2026</option>
+              <option value="2026-08-29">29. August 2026</option>
+              <option value="2026-09-26">26. September 2026</option>
+              <option value="2026-10-24">24. Oktober 2026</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="format">Format *</label>
+            <select id="format" name="format" required>
+              <option value="" disabled selected>Bitte wählen Sie ein Format</option>
+              <option value="teilnahme">Teilnahme (50 &euro;)</option>
+              <option value="eigene-aufstellung">Eigene Aufstellung (250 &euro;)</option>
+              <option value="vip">VIP-Format (auf Anfrage)</option>
+              <option value="erstgespraech">Erstgespräch</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="anliegen">Ihr Anliegen</label>
+            <textarea id="anliegen" name="anliegen" placeholder="Beschreiben Sie kurz Ihr Anliegen oder Ihre Fragen (optional)."></textarea>
+          </div>
+
+          <div class="form-checkbox">
+            <input type="checkbox" id="datenschutz" name="datenschutz" required>
+            <label for="datenschutz">Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu. *</label>
+          </div>
+
+          <button type="submit" class="btn btn--primary" style="width: 100%; justify-content: center;">Verbindlich anfragen</button>
+
+        </form>
+      </div>
+    </section>
+
+    <!-- ========== Seminarort ========== -->
+    <section class="section" id="seminarort">
+      <div class="container">
+        <h2 class="text-center mb-lg">Seminarort</h2>
+        <div class="location-grid">
+
+          <div class="location-details">
+            <h3>Veranstaltungsort</h3>
+            <p><strong>Alten-Service-Zentrum (ASZ)</strong><br>
+            Bahnhofstraße 4<br>
+            85386 Eching</p>
+
+            <h3 class="mt-lg">Anfahrt</h3>
+            <p><strong>Mit der S-Bahn:</strong><br>
+            S1 Richtung Freising, Haltestelle Eching. Von dort ca. 5 Minuten zu Fuß.</p>
+            <p><strong>Mit dem Auto:</strong><br>
+            A9 München–Nürnberg, Ausfahrt Eching. Parkplätze stehen am Veranstaltungsort zur Verfügung.</p>
+          </div>
+
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2656.5!2d11.617!3d48.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e73c5e2e5e5e5%3A0x0!2sBahnhofstra%C3%9Fe%204%2C%2085386%20Eching!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Karte: ASZ Eching, Bahnhofstraße 4, 85386 Eching">
+            </iframe>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+
+        <!-- Brand -->
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo" aria-label="Bertram Böhm — Startseite">
+            <svg class="nav__logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" fill="rgba(255,255,255,0.7)"/>
+              <circle cx="28" cy="12" r="4" fill="rgba(255,255,255,0.5)"/>
+              <circle cx="12" cy="28" r="4" fill="rgba(255,255,255,0.5)"/>
+              <circle cx="28" cy="28" r="4" fill="rgba(255,255,255,0.7)"/>
+              <line x1="16" y1="12" x2="24" y2="12" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+              <line x1="12" y1="16" x2="12" y2="24" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+              <line x1="28" y1="16" x2="28" y2="24" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+              <line x1="16" y1="28" x2="24" y2="28" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+              <line x1="15" y1="15" x2="25" y2="25" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+              <line x1="25" y1="15" x2="15" y2="25" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            </svg>
+            <div class="nav__logo-text" style="color: rgba(255,255,255,0.9);">
+              Bertram Böhm
+              <span style="color: rgba(255,255,255,0.6);">Systemische Beratung</span>
+            </div>
+          </a>
+          <p>Systemische Aufstellungen für Unternehmen in Eching bei München. Organisationsaufstellungen und Problemaufstellungen mit anwaltlicher Schweigepflicht.</p>
+        </div>
+
+        <!-- Angebot -->
+        <div>
+          <h4 class="footer__heading">Angebot</h4>
+          <ul class="footer__links">
+            <li><a href="organisationsaufstellung.html">Organisationsaufstellung</a></li>
+            <li><a href="problemaufstellung.html">Problemaufstellung</a></li>
+            <li><a href="methode.html">Die Methode</a></li>
+            <li><a href="termine.html">Termine & Seminare</a></li>
+          </ul>
+        </div>
+
+        <!-- Information -->
+        <div>
+          <h4 class="footer__heading">Information</h4>
+          <ul class="footer__links">
+            <li><a href="ueber-mich.html">Über Bertram Böhm</a></li>
+            <li><a href="methode.html">Systemische Aufstellung</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <!-- Kontakt -->
+        <div>
+          <h4 class="footer__heading">Kontakt</h4>
+          <div class="footer__contact-info">
+            <a href="tel:+498932714713">+49 (0)89 / 32 71 47 13</a>
+            <a href="mailto:RA.Boehm@t-online.de">RA.Boehm@t-online.de</a>
+            <p style="margin-top: 0.5rem;">Bertram Böhm<br>Eching bei München</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer__bottom">
+        <p>&copy; 2026 Bertram Böhm. Alle Rechte vorbehalten.</p>
+        <div class="footer__legal">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
