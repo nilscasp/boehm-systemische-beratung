@@ -8,25 +8,53 @@ document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.querySelector('.nav__toggle');
   const navLinks = document.querySelector('.nav__links');
 
+  // Create overlay element for mobile nav
+  const overlay = document.createElement('div');
+  overlay.className = 'nav__overlay';
+  overlay.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(overlay);
+
+  function openNav() {
+    navLinks.classList.add('open');
+    navToggle.classList.add('active');
+    navToggle.setAttribute('aria-expanded', 'true');
+    navToggle.setAttribute('aria-label', 'Menü schließen');
+    overlay.classList.add('visible');
+    document.body.classList.add('nav-open');
+  }
+
+  function closeNav() {
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Menü öffnen');
+    overlay.classList.remove('visible');
+    document.body.classList.remove('nav-open');
+  }
+
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-      navToggle.classList.toggle('active');
+      const isOpen = navLinks.classList.contains('open');
+      if (isOpen) {
+        closeNav();
+      } else {
+        openNav();
+      }
     });
 
     // Close on link click
     navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        navToggle.classList.remove('active');
-      });
+      link.addEventListener('click', () => closeNav());
     });
 
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
-        navLinks.classList.remove('open');
-        navToggle.classList.remove('active');
+    // Close on overlay click
+    overlay.addEventListener('click', () => closeNav());
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+        closeNav();
+        navToggle.focus();
       }
     });
   }
