@@ -351,7 +351,9 @@ body.nav-open {
 /* --- Hero --- */
 .hero {
   padding: 10rem 0 6rem;
-  background: linear-gradient(170deg, var(--color-background) 0%, var(--color-background-alt) 50%, rgba(30, 58, 95, 0.04) 100%);
+  background:
+    linear-gradient(90deg, rgba(247, 248, 250, 0.97) 0%, rgba(247, 248, 250, 0.92) 38%, rgba(247, 248, 250, 0.78) 72%, rgba(247, 248, 250, 0.70) 100%),
+    url('../img/hero-raum.jpg') center 28% / cover no-repeat;
   position: relative;
   overflow: hidden;
 }
@@ -1353,6 +1355,9 @@ body.nav-open {
 
   .hero {
     padding: 7rem 0 3rem;
+    background:
+      linear-gradient(180deg, rgba(247, 248, 250, 0.94) 0%, rgba(247, 248, 250, 0.89) 100%),
+      url('../img/hero-raum.jpg') center 30% / cover no-repeat;
   }
 
   .hero__title {
