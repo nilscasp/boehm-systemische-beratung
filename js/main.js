@@ -126,4 +126,50 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
+  // --- Formspree AJAX submission (no redirect, inline status) ---
+  document.querySelectorAll('form[action*="formspree.io"]').forEach(form => {
+    const status = document.createElement('div');
+    status.className = 'form-status';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    status.hidden = true;
+    form.appendChild(status);
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      const originalLabel = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Wird gesendet …'; }
+      status.hidden = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.reset();
+          status.className = 'form-status form-status--success';
+          status.textContent = 'Vielen Dank! Ihre Nachricht wurde gesendet. Ich melde mich so bald wie möglich bei Ihnen.';
+          status.hidden = false;
+          status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          const data = await res.json().catch(() => ({}));
+          const msg = (data.errors && data.errors.length)
+            ? data.errors.map(er => er.message).join(' ')
+            : 'Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt per E-Mail.';
+          throw new Error(msg);
+        }
+      } catch (err) {
+        status.className = 'form-status form-status--error';
+        status.textContent = err.message || 'Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt per E-Mail.';
+        status.hidden = false;
+      } finally {
+        if (btn) { btn.disabled = false; btn.textContent = originalLabel; }
+      }
+    });
+  });
+
 });

@@ -1667,3 +1667,23 @@ body.nav-open {
     page-break-before: always;
   }
 }
+
+/* --- Formspree form status message --- */
+.form-status {
+  margin-top: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.form-status[hidden] { display: none; }
+.form-status--success {
+  background: #E8F3EC;
+  border: 1px solid #2E7D52;
+  color: #1E5637;
+}
+.form-status--error {
+  background: #FBEBEB;
+  border: 1px solid #C0392B;
+  color: #922B21;
+}
